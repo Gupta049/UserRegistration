@@ -35,4 +35,14 @@ public class RegistrationTest {
         boolean result = registrationObj.emailMatchFun("Sushil.Gupta049@gmail.com"); // Negative Test Case For Email Validation
         Assert.assertEquals(false, result);
     }
+    @Test
+    public void give_Mobile_Number_When_Validate_Should_Return_True(){          // Positive Test Case For validating Mobile Number
+        boolean result = registrationObj.mobileValidateFun("91 6205803215"); // right mobile format
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void give_Mobile_Number_When_Validate_Should_Return_False(){ // Negative Test case for Validate Mobile Number
+        boolean result = registrationObj.mobileValidateFun("916205803215"); // wrong mobile format
+        Assert.assertEquals(false, result);
+    }
 }
