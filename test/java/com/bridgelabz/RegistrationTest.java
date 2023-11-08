@@ -25,4 +25,14 @@ public class RegistrationTest {
         boolean result = registrationObj.lastNameMatchFun("kumar"); // Negative Test Case For Last Name Validation
         Assert.assertEquals(false, result);
     }
+    @Test
+    public void given_Email_When_validate_Should_Return_True(){
+        boolean result = registrationObj.emailMatchFun("sushil.gupta049@gmail.com"); // Positive Test Case For Email Validation
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void given_Email_When_validate_Should_Return_False(){
+        boolean result = registrationObj.emailMatchFun("Sushil.Gupta049@gmail.com"); // Negative Test Case For Email Validation
+        Assert.assertEquals(false, result);
+    }
 }

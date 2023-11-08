@@ -23,4 +23,15 @@ public class UserRegistration {
 
         return false;
     }
+
+    public boolean emailMatchFun(String emailId) {
+        //Pattern pattern = Pattern.compile("^[a-z]+[-$%&+.]?[0-9a-z]+@[a-z0-9]?[a-z]{3,}([.][a-z]{2,4})$");
+        Pattern pattern = Pattern.compile("^[a-z0-9._%+-]+@[a-z]+\\.[a-z]{2,4}$");
+        Matcher matcher = pattern.matcher(emailId);
+        if(matcher.matches()){
+            return true;
+        }
+        return false;
+    }
+
 }
