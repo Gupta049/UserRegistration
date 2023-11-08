@@ -45,4 +45,14 @@ public class RegistrationTest {
         boolean result = registrationObj.mobileValidateFun("916205803215"); // wrong mobile format
         Assert.assertEquals(false, result);
     }
+    @Test
+    public void give_Password_Minimum_Eight_Character_When_Validate_Should_Return_True(){
+        boolean result = registrationObj.minimumEightCharFun("sushilgu");
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void give_Password_Minimum_Eight_Character_When_Validate_Should_Return_False(){
+        boolean result = registrationObj.minimumEightCharFun("sushil");
+        Assert.assertEquals(false, result);
+    }
 }

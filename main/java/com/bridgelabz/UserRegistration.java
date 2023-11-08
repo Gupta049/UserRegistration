@@ -44,4 +44,14 @@ public class UserRegistration {
             return false;
         }
     }
+
+    public boolean minimumEightCharFun(String pass) {
+        Pattern pattern = Pattern.compile("^[a-z]{8}");
+        Matcher matcher = pattern.matcher(pass);
+        if (matcher.matches()){
+            return true;
+        }
+
+        return false;
+    }
 }
