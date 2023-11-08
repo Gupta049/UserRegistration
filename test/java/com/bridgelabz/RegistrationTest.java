@@ -22,7 +22,7 @@ public class RegistrationTest {
     }
     @Test
     public void given_Last_Name_When_validate_Should_Return_False(){
-        boolean result = registrationObj.lastNameMatchFun("Kumar"); // Negative Test Case For Last Name Validation
+        boolean result = registrationObj.lastNameMatchFun("kumar"); // Negative Test Case For Last Name Validation
         Assert.assertEquals(false, result);
     }
 }
