@@ -34,4 +34,14 @@ public class UserRegistration {
         return false;
     }
 
+    public boolean mobileValidateFun(String mobileNumber) {
+        Pattern pattern =Pattern.compile("^[9][0-9]{1}\\s\\d{10}$");
+        Matcher matcher = pattern.matcher(mobileNumber);
+        if (matcher.matches()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
