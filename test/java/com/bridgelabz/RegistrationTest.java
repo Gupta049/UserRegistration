@@ -57,12 +57,17 @@ public class RegistrationTest {
     }
     @Test //Positive Test Case For UC6 (Rule 2)
     public void give_Password_Minimum_Eight_AndOneUpperCaseShould_Character_When_Validate_Should_Return_True(){
-        boolean result = registrationObj.minimumEightCharHavingAtleasteUpperCaseFun("sushilGu");
+        boolean result = registrationObj.minimumEightCharHavingAtleasteUpperCaseFun("sushiGul");
         Assert.assertTrue(result);
     }
     @Test //Negative Test Case For UC6 (Rule 2)
     public void give_Password_Minimum_Eight_AndOneUpperCaseShould_Character_When_Validate_Should_Return_False(){
         boolean result = registrationObj.minimumEightCharHavingAtleasteUpperCaseFun("sushilgu"); // (when we pass -> sUshilgu it gives expected false and actual true)
         Assert.assertEquals(false, result);
+    }
+    @Test
+    public void give_Pass_Min8_OneUpperCaseOne_Number_When_Validate_Should_Return_True(){
+        boolean result = registrationObj.minEightCharHavingAtleasteOneUpperCaseAndOneNumberFun("Sushilg0");
+        Assert.assertTrue(result);
     }
 }
