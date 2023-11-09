@@ -66,4 +66,14 @@ public class UserRegistration {
 
         return false;
     }
+
+    public boolean minEightCharHavingAtleasteOneUpperCaseAndOneNumberFun(String password) {
+        Pattern pattern = Pattern.compile("^(?=(?:[^A-Z]*[A-Z]){1})(?=(?:[^0-9]*[0-9]){1})(?=[a-zA-Z0-9]*$)[a-zA-Z0-9]{8}$");
+        Matcher matcher = pattern.matcher(password);
+        if (matcher.matches()){
+            return true;
+        }
+
+        return false;
+    }
 }

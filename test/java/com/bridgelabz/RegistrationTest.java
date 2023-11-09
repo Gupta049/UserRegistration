@@ -42,27 +42,32 @@ public class RegistrationTest {
     }
     @Test
     public void give_Mobile_Number_When_Validate_Should_Return_False(){ // Negative Test case for Validate Mobile Number
-        boolean result = registrationObj.mobileValidateFun("916205803215"); // wrong mobile format
+        boolean result = registrationObj.mobileValidateFun("91-6205803215"); // wrong mobile format
         Assert.assertEquals(false, result);
     }
-    @Test
+    @Test // +ve Test Case (Rule 1 : minimum 8 character)
     public void give_Password_Minimum_Eight_Character_When_Validate_Should_Return_True(){
         boolean result = registrationObj.minimumEightCharFun("sushilgu");
         Assert.assertTrue(result);
     }
-    @Test
+    @Test // -ve Test Case (Rule 1 : minimum 8 character)
     public void give_Password_Minimum_Eight_Character_When_Validate_Should_Return_False(){
         boolean result = registrationObj.minimumEightCharFun("sushil");
         Assert.assertEquals(false, result);
     }
-    @Test //Positive Test Case For UC6
+    @Test //Positive Test Case For UC6 (Rule 2)
     public void give_Password_Minimum_Eight_AndOneUpperCaseShould_Character_When_Validate_Should_Return_True(){
-        boolean result = registrationObj.minimumEightCharHavingAtleasteUpperCaseFun("sushilGu");
+        boolean result = registrationObj.minimumEightCharHavingAtleasteUpperCaseFun("sushiGul");
         Assert.assertTrue(result);
     }
-    @Test //Negative Test Case For UC6
+    @Test //Negative Test Case For UC6 (Rule 2)
     public void give_Password_Minimum_Eight_AndOneUpperCaseShould_Character_When_Validate_Should_Return_False(){
         boolean result = registrationObj.minimumEightCharHavingAtleasteUpperCaseFun("sushilgu"); // (when we pass -> sUshilgu it gives expected false and actual true)
         Assert.assertEquals(false, result);
+    }
+    @Test
+    public void give_Pass_Min8_OneUpperCaseOne_Number_When_Validate_Should_Return_True(){
+        boolean result = registrationObj.minEightCharHavingAtleasteOneUpperCaseAndOneNumberFun("Sushilg0");
+        Assert.assertTrue(result);
     }
 }
