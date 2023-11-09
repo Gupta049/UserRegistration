@@ -46,8 +46,22 @@ public class UserRegistration {
     }
 
     public boolean minimumEightCharFun(String pass) {
+
+        // ^(?=(?:[^A-Z]*[A-Z]){1})(?=(?:[^a-z]*[a-z]){1})(?=[a-zA-Z]*$)[a-zA-Z]{8}$
         Pattern pattern = Pattern.compile("^[a-z]{8}");
         Matcher matcher = pattern.matcher(pass);
+        if (matcher.matches()){
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean minimumEightCharHavingAtleasteUpperCaseFun(String passw) {
+        // ^[a-z]{8}+|(?=(?:[^A-Z]*[A-Z]){1})(?=[a-zA-Z]*$ <-- this pass UC1 and UC2 both
+        // ^(?=(?:[^A-Z]*[A-Z]){1})(?=[a-zA-Z]*$ <-- this is for UC2 only
+        Pattern pattern = Pattern.compile("^(?=(?:[^A-Z]*[A-Z]){1})(?=[a-zA-Z]*$)[a-zA-Z]{8}$");
+        Matcher matcher = pattern.matcher(passw);
         if (matcher.matches()){
             return true;
         }
