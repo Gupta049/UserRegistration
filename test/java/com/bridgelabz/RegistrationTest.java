@@ -128,4 +128,5 @@ public class RegistrationTest {
         boolean result = registrationObj.sampleEmailValidateMethod("abc@yahoo.com");
         Assert.assertTrue(result);
     }
+
 }

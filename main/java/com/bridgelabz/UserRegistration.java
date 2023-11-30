@@ -119,4 +119,9 @@ public class UserRegistration implements UserRegistrationInter{
         Matcher matcher = pattern.matcher(s);
         return (matcher.matches());
     }
+
+    public boolean multipleEmailMatchFun(String email, boolean isEmail) {
+
+        return (emailMatchFun(email));
+    }
 }
