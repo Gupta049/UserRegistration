@@ -4,6 +4,26 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class RegistrationTest {
+   /* public static void main(String[] args) {
+        List<String> name = new ArrayList<>();
+        name.add("Sushil");
+        RegistrationInterface registrationInterface = ("Sushil") ->{
+            Pattern pattern = Pattern.compile("^[A-Z]{1,1}[a-z]{2,}$");
+            Matcher matcher = pattern.matcher("Sushil");
+//            if (matcher.matches()) {
+//                return true;
+//            }
+//
+//            return false;
+            boolean result = name.stream()
+                                .anyMatch(n -> matcher.matches());
+            System.out.println(result);
+        };
+        boolean fNameCheckResult = registrationInterface.fName("Sushil");
+        System.out.println(fNameCheckResult);
+    }
+
+    */
     UserRegistration registrationObj = new UserRegistration();
     @Test
     public void given_Name_When_validate_Should_Return_True(){
@@ -67,7 +87,12 @@ public class RegistrationTest {
     }
     @Test
     public void give_Pass_Min8_OneUpperCaseOne_Number_When_Validate_Should_Return_True(){
-        boolean result = registrationObj.minEightCharHavingAtleasteOneUpperCaseAndOneNumberFun("Sushilg0");
+        boolean result = registrationObj.minEightCharHavingAtleasteOneUpperCaseAndOneNumberFun("Sushi0iG");
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void give_Pass_Min8_OneUppCaseOne_Num_One_SpclChar_When_Validate_Should_Return_True(){
+        boolean result = registrationObj.minEightCharHavingAtleasteOneUppCaseOneNumOneSpecialCharFun("SuSh#9Uy");
         Assert.assertTrue(result);
     }
 }

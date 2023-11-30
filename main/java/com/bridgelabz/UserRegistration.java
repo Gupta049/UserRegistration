@@ -3,15 +3,41 @@ package com.bridgelabz;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UserRegistration {
-    public boolean firstNameMatchFun(String fName) {
-        Pattern pattern = Pattern.compile("^[A-Z]{1,1}[a-z]{2,}$");
-        Matcher matcher = pattern.matcher(fName);
-        if(matcher.matches()){
-            return true;
-        }
+@FunctionalInterface
+interface UserRegistrationInter {
+    boolean firstNameMatchFun(String s);
+}
+public class UserRegistration implements UserRegistrationInter{
 
-        return false;
+
+    /*public static void main(String[] args) {
+
+        String fName = "Sushil";
+//        UserRegistrationInter user = (name) -> { boolean res = Pattern.compile("^[A-Z]{1}[a-z]{2,}$").matcher(fName).matches(); return res;};
+//        System.out.println(user.firstNameMatchFun(fName));
+        boolean user = firstNameMatchFun(fName);
+
+//
+//        UserRegistrationInter user = new UserRegistrationInter() {
+//            @Override
+//            public boolean firstNameMatchFun(String s) {
+//                return false;
+//            }
+//        }
+    }*/
+
+//    public boolean firstNameMatchFun(String fName) {
+//        Pattern pattern = Pattern.compile("^[A-Z]{1,1}[a-z]{2,}$");
+//        Matcher matcher = pattern.matcher(fName);
+//        if(matcher.matches()){
+//            return true;
+//        }
+//
+//        return false;
+//    }
+    public boolean firstNameMatchFun(String fName) {
+        boolean res = Pattern.compile("^[A-Z]{1}[a-z]{2,}$").matcher(fName).matches();
+        return res;
     }
 
     public boolean lastNameMatchFun(String lName) {
@@ -68,8 +94,19 @@ public class UserRegistration {
     }
 
     public boolean minEightCharHavingAtleasteOneUpperCaseAndOneNumberFun(String password) {
-        Pattern pattern = Pattern.compile("^(?=(?:[^A-Z]*[A-Z]){1})(?=(?:[^0-9]*[0-9]){1})(?=[a-zA-Z0-9]*$)[a-zA-Z0-9]{8}$");
+        //Pattern pattern = Pattern.compile("^(?=(?:[^A-Z]*[A-Z]){1})(?=(?:[^0-9]*[0-9]){1})(?=[a-zA-Z0-9#$@%&]*$)[a-zA-Z0-9#$@%&]{8}$");
+        Pattern pattern = Pattern.compile("^(?=(?:[^A-Z]*[A-Z]){1})(?=(?:[^0-9]*[0-9]){1})(?=[a-zA-Z0-9#$@%&]*$)[a-zA-Z0-9]{8}$");
         Matcher matcher = pattern.matcher(password);
+        if (matcher.matches()){
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean minEightCharHavingAtleasteOneUppCaseOneNumOneSpecialCharFun(String passwordUpdate) {
+        Pattern pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=[^%_#&$+=@]*[%_#&$+=@][^%_#&$+*^=@]*$).{8}$");
+        Matcher matcher = pattern.matcher(passwordUpdate);
         if (matcher.matches()){
             return true;
         }
