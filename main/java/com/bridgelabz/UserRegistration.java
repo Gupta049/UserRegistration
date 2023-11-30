@@ -113,4 +113,10 @@ public class UserRegistration implements UserRegistrationInter{
 
         return false;
     }
+
+    public boolean sampleEmailValidateMethod(String s) {
+        Pattern pattern = Pattern.compile("^([a-z0-9]+([-$%&+.]?[0-9a-z]+))[@][a-z0-9]+[.][a-z]{3,}([.][a-z]{2,})?$");
+        Matcher matcher = pattern.matcher(s);
+        return (matcher.matches());
+    }
 }
